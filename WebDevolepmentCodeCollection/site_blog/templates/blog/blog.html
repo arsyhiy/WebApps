@@ -1,0 +1,52 @@
+{% load static %}
+<html >
+<head>
+	<title>Мой блог</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css" media="all" />
+
+	<link rel="shortcut icon" href="css/images/favicon.ico" />
+
+</head>
+<body>
+<div class="shell">
+	<div class="border">
+
+		<div id="navigation">
+			<ul>
+			    <li><a href="/" class="active">Главная</a></li>
+			    <li><a href="/admin">Админ панель</a></li>
+			    
+			</ul>
+		</div>
+
+		<div id="main">
+			<div id="content" class="left">
+				
+				<div class="projects">
+					<h3>Записи</h3>
+					{% for posts in post_list %}
+					<div class="item">
+						<div class="image left">
+							<a href="#"><img src="{{ posts.img.url }}" width="100px" /></a>
+						</div>
+						<div class="text left">
+							<h4><a href="{{ posts.id }}"{{ posts.title }}</a></h4>
+							<p>{{ posts.description }}</p>
+							<p>{{ posts.author }}:  </p>
+						</div>
+						<div class="cl">&nbsp;</div>
+					</div>
+					{% endfor %} 
+				</div>
+			</div>
+			
+			<div class="cl">&nbsp;</div>
+		</div>
+		
+
+	</div>
+	
+</div>
+</body>
+</html>

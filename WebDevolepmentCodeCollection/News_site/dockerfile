@@ -1,0 +1,13 @@
+from python:3.9
+
+RUN mkdir /ServerFolder
+workdir /ServerFolder
+
+# Envoriment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+RUN pip install django djangorestframework psycopg2-binary pillow environ
+# NOTE: скачивает самые послдение версии пакетов 
+# отличие от requiments.txt что у него версии.
+COPY . .

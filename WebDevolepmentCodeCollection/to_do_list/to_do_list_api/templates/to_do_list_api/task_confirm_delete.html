@@ -1,0 +1,16 @@
+{% extends 'to_do_list_api/main.html' %}
+{% block content %}
+
+<div class="headr-bar">
+    <a href="{% url 'tasks' %}">&#8592; go Back</a>
+</div>
+
+<div class="card-body">
+    <form method="POST">
+        {% csrf_token %}
+        <p>are you sure you want delete this task? "{{task}}"</P>
+        <input class="button" type="submit" value="Delete"/>
+    </form>
+    
+</div>
+{% endblock content %}
